@@ -1,8 +1,42 @@
-<h1><%= @сourier.name %></h1>
 
-<p><%= @сourier.email %></p>
+<h1><%= "Courier Name: #{@courier.name}"%></h1>
 
+<p><%= "Courier Email: #{@courier.email}"%></p>
 
 <ul>
-  <li><%= link_to "Edit", edit_сourier_path(@сourier) %></li>
+  <li><%= link_to('Edit', edit_courier_path(@courier)) %></li>
 </ul>
+
+<h2>Packages</h2>
+<% if @courier.packages.any? %>
+  <% @courier.packages.each do |package| %>
+    <div>
+    <p>
+      <strong>tracking_number:</strong>
+      <%= package.tracking_number %>
+    </p>
+    <p>
+      <strong>delivery_status:</strong>
+      <%= package.delivery_status %>
+    </p>
+    <br>
+    </div>
+  <% end %>
+<% else %>
+  <p>No packages for this courier yet!</p>
+<% end %>
+
+<h2>Add a package:</h2>
+<%=form_with model: [ @courier, @courier.packages.build ] do |form|%>
+  <p>
+    <%= form.label :tracking_number %><br>
+    <%= form.text_field :tracking_number %>
+  </p>
+  <p>
+    <%= form.label :delivery_status %><br>
+    <%= form.check_box :delivery_status, {}, true, false %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

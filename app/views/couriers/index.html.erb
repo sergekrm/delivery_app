@@ -1,12 +1,20 @@
-<h1>Couriers</h1>
-<ul>
-  <% @сouriers.each do |сourier| %>
-    <li>
-      <%= link_to сourier.name, сourier %>
-    </li>
+<h1>Couriers List</h1>
+<div>
+<table align="center">
+  <tr>
+    <th width='40%'>Name </th>
+    <th width='40%'>Email </th>
+    <th width='20%'> </th>
+  </tr>
+ <% @сouriers.each do |сourier| %>
+  <tr>
+    <td style="text-align:center"><%= сourier.name %></td>
+    <td style="text-align:center"><%= сourier.email %></td><td>
+    <td style="text-align:center"><%= link_to('Edit', edit_courier_path(сourier)) %></td>
+  </tr>
   <% end %>
-</ul>
+ </table>
+ </div>
 
-<%= link_to 'New Courier' , new_сourier_path(@сourier)%>
-<%= link_to 'Show Courier' , show_сourier_path(@сourier) %>
-<%= link_to 'Edit Courier' %>
+<br>
+ <%=link_to 'New Courier', new_courier_path %>

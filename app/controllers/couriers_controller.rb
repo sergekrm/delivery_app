@@ -1,5 +1,4 @@
 class CouriersController < ApplicationController
-
   def index
     @сouriers = Courier.all
   end
@@ -37,7 +36,8 @@ class CouriersController < ApplicationController
  end
 
  private
-   def courier_params
-     params.require(:courier).permit(:name, :email)
-   end
+
+ def courier_params
+   params.permit(:name, :email)
+ end
 end

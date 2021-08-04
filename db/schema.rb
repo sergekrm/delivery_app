@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_222214) do
+ActiveRecord::Schema.define(version: 2021_08_04_152317) do
 
   create_table "couriers", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.string "tracking_number"
+    t.boolean "delivery_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "courier_id"
+    t.index ["courier_id"], name: "index_packages_on_courier_id"
   end
 
 end

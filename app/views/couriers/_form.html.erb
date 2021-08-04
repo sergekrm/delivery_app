@@ -1,17 +1,5 @@
-<%= form_with model: сourier do |form| %>
-  <div>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.label :email %><br>
-    <%= form.text_area :email %><br>
-    <% end %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<%= form_with model: @courier do |form| %>
+  <%= form.text_field :email, placeholder: "email", :class => "form_box" %>
+  <%= form.text_field :name, placeholder: "username", :class => "form_box"%>
+  <%= form.submit "SUBMIT" %>
 <% end %>
