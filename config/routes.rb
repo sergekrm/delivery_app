@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "couriers#index"
+  
 
-   get 'couriers/index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'couriers/index'
+  get "/couriers/:id", to: "couriers#show"
+  get "/couriers/:id", to: "couriers#new"
+  get "/couriers/:id", to: "couriers#edit"
+
 end

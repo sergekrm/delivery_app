@@ -1,2 +1,12 @@
-<h1>Couriers#index</h1>
-<p>Find me in app/views/couriers/index.html.erb</p>
+<h1>Couriers</h1>
+<ul>
+  <% @сouriers.each do |сourier| %>
+    <li>
+      <%= link_to сourier.name, сourier %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Courier' , new_сourier_path(@сourier)%>
+<%= link_to 'Show Courier' , show_сourier_path(@сourier) %>
+<%= link_to 'Edit Courier' %>
